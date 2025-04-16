@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>My Blockly Workspace</title>
-    <script src="./blockly_compressed.js"></script>
-    <script src="./blocks_compressed.js"></script>
-    <script src="./python_compressed.js"></script>
-    <script src="./custom_usb_camera_block.js"></script>
-    <script src="./custom_usb_camera_generator.js"></script>
+    <!-- Include the Blockly library -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <!-- Include your custom blocks -->
+    <script src="custom_usb_camera_block.js"></script>
+    <script src="custom_usb_camera_generator.js"></script>
     <style>
-        /* Styling for Blockly workspace */
-        #blocklyDiv {
-            height: 480px;
-            width: 100%;
-        }
+      html, body, #blocklyDiv {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
-    <h1>My Blockly Workspace</h1>
-    <!-- The div where Blockly will be injected -->
-    <div id="blocklyDiv"></div>
-    
-    <!-- Toolbox definition -->
-    <xml id="toolbox" style="display: none">
-        <category name="Custom Blocks" colour="#230">
-            <block type="usb_camera_take_picture"></block>
-        </category>
-        <!-- Add other categories if required -->
-    </xml>
+  </head>
+  <body>
+    <!-- Blockly Workspace -->
+    <div id="blocklyDiv" style="height: 100%; width: 100%;"></div>
 
     <script>
-        // Inject Blockly into the 'blocklyDiv'
-        var workspace = Blockly.inject('blocklyDiv', {
-            toolbox: document.getElementById('toolbox')
-        });
+      // Inject Blockly into the workspace
+      const workspace = Blockly.inject('blocklyDiv', {
+        toolbox: `
+          <xml xmlns="https://developers.google.com/blockly/xml">
+            <category name="Custom Blocks" colour="%2300B8D4">
+              <block type="custom_usb_camera_block"></block>
+            </category>
+          </xml>
+        `
+      });
     </script>
-</body>
+  </body>
 </html>
