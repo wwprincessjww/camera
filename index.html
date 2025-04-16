@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="path/to/blockly_compressed.js"></script>
+    <script src="path/to/blocks_compressed.js"></script>
+    <script src="path/to/python_compressed.js"></script>
+    <script src="custom_usb_camera_block.js"></script>
+    <script src="custom_usb_camera_generator.js"></script>
+    <script>
+        var workspace = Blockly.inject('blocklyDiv', {
+            toolbox: document.getElementById('toolbox')
+        });
+    </script>
+</head>
+<body>
+    <h1>My Blockly Workspace</h1>
+    <div id="blocklyDiv" style="height: 480px; width: 640px;"></div>
+    <xml id="toolbox" style="display: none">
+        <category name="Custom Blocks" colour="#230">
+            <block type="usb_camera_take_picture"></block>
+        </category>
+    </xml>
+</body>
+</html>
